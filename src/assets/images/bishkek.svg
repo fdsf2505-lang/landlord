@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#e6f0ff"/>
+      <stop offset="1" stop-color="#f0fbff"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <text x="50%" y="50%" font-size="48" text-anchor="middle" fill="#5b7fc9" font-family="Montserrat, Arial, sans-serif">Бишкек — изображение (заглушка)</text>
+</svg>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>О проекте — Landlord.AI</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="../js/main.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    .text-content {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    
+    .text-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: #374151;
+    }
+    
+    .text-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+      background: linear-gradient(45deg, #2563eb, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #6b7280;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+
+    .mission-hero {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+    .mission-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff !important; /* полностью белый */
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  margin-bottom: 2rem;
+}
+
+
+    .mission-content .lead {
+      font-size: 1.5rem;
+      color: #4b5563;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      animation: fadeInUp 1s ease-out 0.3s backwards;
+    }
+
+    .mission-content p,
+.mission-content .lead {
+  color: #ffffff !important;
+}
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .team-member-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .team-member-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 118, 255, 0.1);
+    }
+    
+    .team-member-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 16px 16px 0 0;
+    }
+    
+    .team-member-info {
+      padding: 1.5rem;
+      background: white;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .team-member-info .role {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background: var(--primary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      padding: 1rem 2rem;
+      position: relative;
+      width: 50%;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .timeline-item.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-item:nth-child(odd)::before {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::before {
+      left: -10px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, var(--primary-color), #60a5fa);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    .value-card:hover::before {
+      opacity: 0.05;
+    }
+
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 118, 255, 0.1);
+    }
+
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      color: var(--primary-color);
+      background: rgba(0, 118, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .value-card:hover .value-icon {
+      transform: scale(1.1);
+    }
+
+    .behind-scenes {
+  position: relative;
+  padding: 4rem 0;
+  background: #ffffff;
+}
+
+
+    .quote-card {
+      background: white;
+      padding: 3rem;
+      border-radius: 16px;
+      margin: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .quote-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+    }
+
+    .quote-card .fa-quote-left {
+      color: #2563eb;
+      opacity: 0.2;
+      font-size: 3rem;
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+    }
+
+    .quote-card p {
+      position: relative;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #374151;
+    }
+
+    .quote-card .author {
+      font-weight: 600;
+      color: #2563eb;
+      font-size: 1.1rem;
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .achievement-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 118, 255, 0.1);
+    }
+
+    .achievement-icon {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .social-links-large {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .social-links-large a {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .social-links-large a::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      opacity: 0.2;
+      transition: all 0.3s ease;
+    }
+
+    .social-links-large a:hover {
+      transform: translateY(-5px);
+    }
+
+    .social-links-large a:hover::before {
+      inset: -8px;
+      opacity: 0.4;
+    }
+
+    .cta-section {
+      background: linear-gradient(45deg, var(--primary-color), #60a5fa);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+      border-radius: 0 100px 0 0;
+    }
+
+    .media-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      filter: grayscale(1) opacity(0.7);
+    }
+
+    .media-logos img {
+      height: 40px;
+      transition: all 0.3s ease;
+    }
+
+    .media-logos img:hover {
+      filter: none;
+      transform: scale(1.1);
+    }
+
+    .hero-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; /* или 500, если нужно чуть жирнее */
+  font-size: 1.3rem; /* для первого абзаца */
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-subtitle.small {
+  font-size: 1.1rem; /* для последующих абзацев */
+  margin-bottom: 0.8rem;
+}
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><i class="fas fa-building"></i> Landlord.AI</a>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="research.html">Исследование</a>
+        <a href="validation.html">Валидация</a>
+        <a href="business-model.html">Бизнес</a>
+        <a href="roadmap.html">Развитие</a>
+        <a href="tech.html">Технологии</a>
+        <a href="about.html" class="active">О проекте</a>
+        <a href="contact.html">Контакты</a>
+        <a href="calculator.html" class="cta-button">Рассчитать</a>
+      </div>
+      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <main>
+   
+
+<section class="mission-hero" style="
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  overflow: hidden;
+">
+  <!-- затемнённый слой для полупрозрачности фона -->
+  <div style="
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45); /* регулируем прозрачность от 0 до 1 */
+  "></div>
+
+  <div class="mission-content reveal" style="
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 3rem 2rem;
+  ">
+    <h1 style="
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #ffffff; /* полностью белый */
+      margin-bottom: 1.5rem;
+    ">Наша миссия</h1>
+    
+    <p class="hero-subtitle">
+  Мы объединяем ИИ и рынок недвижимости, чтобы упростить жизнь владельцам жилья.
+</p>
+<p class="hero-subtitle small">
+  Мы создаём умный инструмент, который делает рынок аренды прозрачным, выгодным и удобным для всех участников — владельцев, арендаторов и агентств.
+</p>
+<p class="hero-subtitle small">
+  Наша цель — построить экосистему, где недвижимость управляется с помощью данных, а не догадок.
+</p>
+
+    </p>
+  </div>
+</section>
+
+
+
+
+
+    <section class="section bg-gradient">
+      <div class="container">
+        <h2 class="section-title reveal">История проекта</h2>
+        <p class="section-subtitle reveal">Как родилась идея и что нас вдохновляет</p>
+        
+        <div class="text-content reveal">
+          <p><strong>Landlord.AI</strong> родился из простого наблюдения: владельцы недвижимости в Бишкеке тратят слишком много времени на управление своими объектами. Каждый день они сталкиваются с вопросами определения справедливой цены аренды, поиска надежных арендаторов и эффективного управления своей недвижимостью.</p>
+          
+          <p>В 2023 году мы собрали уникальную команду специалистов из разных областей. Эксперты по недвижимости, разработчики искусственного интеллекта и опытные дизайнеры объединились, чтобы создать инновационное решение. Наша цель была простой, но амбициозной: сделать управление недвижимостью таким же простым, как управление банковским счетом.</p>
+          
+          <p>Сегодня <strong>Landlord.AI</strong> — это не просто калькулятор цен. Это умный помощник, который анализирует рынок, предсказывает тренды и помогает принимать обоснованные решения. Мы гордимся тем, что делаем технологии доступными и полезными для каждого владельца недвижимости.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="container">
+        <h2 class="section-title reveal">Наша команда</h2>
+        <p class="section-subtitle reveal">Над Landlord.AI работают специалисты из Бишкека, Алматы и Москвы. Мы объединяем опыт в аналитике, программировании и управлении недвижимостью.</p>
+        
+        <div class="cards-grid">
+          <div class="team-member-card reveal">
+            <img src="../assets/images/avatar1.svg" alt="Айнура">
+            <div class="team-member-info">
+              <h3>Айнура Токтосунова</h3>
+              <p class="role">CEO</p>
+              <p>5 лет в PropTech и аналитике рынка аренды. Опыт построения успешных онлайн-сервисов.</p>
+            </div>
+          </div>
+          
+          <div class="team-member-card reveal">
+            <img src="../assets/images/avatar2.svg" alt="Тимур">
+            <div class="team-member-info">
+              <h3>Тимур Асанов</h3>
+              <p class="role">CTO</p>
+              <p>Разработка AI-моделей и серверных систем. Большой опыт в машинном обучении.</p>
+            </div>
+          </div>
+          
+          <div class="team-member-card reveal">
+            <img src="../assets/team/elena.svg" alt="Елена">
+            <div class="team-member-info">
+              <h3>Елена Орлова</h3>
+              <p class="role">Product Designer</p>
+              <p>UX/UI дизайнер, работает с PropTech интерфейсами. Создаёт понятные и красивые решения.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title reveal">История проекта</h2>
+        <p class="section-subtitle reveal">Как развивается Landlord.AI</p>
+        
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="icon-soft">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>2024</h3>
+            <p>Идея появилась при анализе рынка аренды в Бишкеке. Мы увидели, что владельцам не хватает современных инструментов.</p>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="icon-soft">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3>2025</h3>
+            <p>Создан MVP Landlord.AI и успешно протестирован в ЖК "Anur Kamala". Первые положительные отзывы.</p>
+          </div>
+          
+          <div class="timeline-item reveal">
+            <div class="icon-soft">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>2026</h3>
+            <p>Запуск публичной версии и привлечение первых платных клиентов. Расширение функционала.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-gradient">
+      <div class="container">
+        <h2 class="section-title reveal">Наши ценности</h2>
+        <p class="section-subtitle reveal">Принципы, которые определяют нашу работу</p>
+        
+        <div class="values-grid">
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Прозрачность</h3>
+            <p>Создаём доверие между арендодателем и арендатором через открытость и честность</p>
+          </div>
+          
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3>Инновации</h3>
+            <p>Внедряем AI там, где раньше были только таблицы. Делаем технологии доступными</p>
+          </div>
+          
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Ответственность</h3>
+            <p>Гарантируем безопасность данных и несём ответственность за результат</p>
+          </div>
+          
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3>Открытость</h3>
+            <p>Активно общаемся с пользователями и быстро внедряем обратную связь</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="behind-scenes">
+      <div class="container">
+        <h2 class="section-title reveal">За кулисами Landlord.AI</h2>
+        <p class="section-subtitle reveal">Как мы работаем и что нас вдохновляет</p>
+        
+        <div class="cards-grid">
+          <div class="quote-card reveal">
+            <i class="fas fa-quote-left fa-2x mb-3" style="color: var(--primary-color)"></i>
+            <p class="mb-3">Мы хотим, чтобы арендодатели спали спокойно. Каждая функция нашего сервиса направлена на то, чтобы сделать управление недвижимостью проще и эффективнее.</p>
+            <p class="author">— Айнура, CEO</p>
+          </div>
+          
+          <div class="quote-card reveal">
+            <i class="fas fa-quote-left fa-2x mb-3" style="color: var(--primary-color)"></i>
+            <p class="mb-3">Искусственный интеллект не должен быть сложным — он должен быть полезным. Мы делаем технологии понятными и доступными для каждого.</p>
+            <p class="author">— Тимур, CTO</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-5 reveal">
+          <div class="video-embed" style="max-width:800px; margin:0 auto;">
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.12)">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&showinfo=0" title="Landlord.AI preview" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Наши достижения</h2>
+        <p class="section-subtitle reveal">Путь к успеху</p>
+        
+        <div class="achievements-grid">
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3>PropTech Startup Week 2025</h3>
+            <p>Победители в категории "Лучшее AI-решение"</p>
+          </div>
+          
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Стратегические партнёрства</h3>
+            <p>Успешное сотрудничество с Homeller и Lalafo</p>
+          </div>
+          
+          <div class="achievement-card reveal">
+            <div class="achievement-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Растущее сообщество</h3>
+            <p>500+ активных пользователей за первые 3 месяца</p>
+          </div>
+        </div>
+
+        <div class="media-logos reveal">
+          <img src="../assets/images/media/tech-kg.svg" alt="Tech.kg">
+          <img src="../assets/images/media/property-today.svg" alt="Property Today">
+          <img src="../assets/images/media/ai-news.svg" alt="AI News">
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="reveal">Присоединяйтесь к нам</h2>
+        <p class="lead mb-5 reveal">Мы открыты к сотрудничеству с агентствами, инвесторами и разработчиками</p>
+        <div class="button-group reveal">
+          <a href="contact.html" class="btn btn-light btn-lg">Стать партнёром</a>
+          <a href="mailto:careers@landlord.ai" class="btn btn-outline-light btn-lg">Работать с нами</a>
+        </div>
+        
+        <div class="social-links-large reveal">
+          <a href="https://t.me/landlordai" title="Telegram">
+            <i class="fab fa-telegram-plane"></i>
+          </a>
+          <a href="https://linkedin.com/company/landlordai" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://instagram.com/landlord.ai" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Landlord.AI</h4>
+          <p>Умный помощник для арендодателей в Бишкеке</p>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <a href="mailto:info@landlord.ai">info@landlord.ai</a>
+          <a href="tel:+996555123456">+996 (555) 123-456</a>
+        </div>
+        <div class="footer-col">
+          <h4>Социальные сети</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Landlord.AI. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Init AOS animations
+    document.addEventListener('DOMContentLoaded', function () {
+      // assign AOS attributes to elements that have class 'reveal'
+      var reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(function(el, i){
+        if (!el.getAttribute('data-aos')) {
+          el.setAttribute('data-aos', 'fade-up');
+          el.setAttribute('data-aos-delay', String((i % 6) * 80));
+        }
+      });
+
+      if (window.AOS) AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+    });
+  </script>
+</body>
+</html>

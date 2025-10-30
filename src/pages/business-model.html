@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Бизнес-модель — Landlord.AI</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="../js/main.js" defer></script>
+  <style>
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .pricing-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+    }
+
+    .pricing-card.popular::before {
+      content: 'Популярный';
+      position: absolute;
+      top: 1rem;
+      right: -2rem;
+      background: #2563eb;
+      color: white;
+      padding: 0.5rem 3rem;
+      transform: rotate(45deg);
+      font-size: 0.8rem;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+
+    .pricing-card .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 2rem;
+    }
+
+    .feature-list {
+      margin: 2rem 0;
+    }
+
+    .feature-list li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feature-list i {
+      color: #2563eb;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .metric-card {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .metric-card .number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 1rem;
+    }
+
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .advantage-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .advantage-card i {
+      font-size: 2rem;
+      color: #2563eb;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 4rem;
+      color: #2563eb;
+      opacity: 0.1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .calculator {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 3rem 0;
+    }
+
+    .calculator-form {
+      display: grid;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    .calculator-form input {
+      padding: 0.5rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .calculator-result {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 2rem;
+      background: #f3f4f6;
+      border-radius: 8px;
+    }
+
+    .bg-gradient {
+      background: linear-gradient(135deg, #2563eb0d 0%, #3b82f60d 100%);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><i class="fas fa-building"></i> Landlord.AI</a>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="research.html">Исследование</a>
+        <a href="validation.html">Валидация</a>
+        <a href="business-model.html" class="active">Бизнес</a>
+        <a href="roadmap.html">Развитие</a>
+        <a href="tech.html">Технологии</a>
+        <a href="about.html">О проекте</a>
+        <a href="contact.html">Контакты</a>
+        <a href="calculator.html" class="cta-button">Рассчитать</a>
+      </div>
+      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content reveal">
+          <h1>Как Landlord.AI зарабатывает</h1>
+          <p class="subtitle">Прозрачная и масштабируемая модель монетизации</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Ценностное предложение</h2>
+        <div class="advantages-grid">
+          <div class="advantage-card reveal">
+            <i class="fas fa-chart-line"></i>
+            <div>
+              <h3>Увеличение дохода</h3>
+              <p>В среднем на 15-20% выше рыночной цены благодаря точному AI-анализу</p>
+            </div>
+          </div>
+          <div class="advantage-card reveal">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h3>Экономия времени</h3>
+              <p>До 10 часов в месяц на управлении каждым объектом недвижимости</p>
+            </div>
+          </div>
+          <div class="advantage-card reveal">
+            <i class="fas fa-shield-alt"></i>
+            <div>
+              <h3>Снижение рисков</h3>
+              <p>Автоматическая проверка арендаторов и мониторинг платежей</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title reveal" style="margin-top:3rem">Тарифные планы</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card reveal">
+            <h3>Basic</h3>
+            <div class="price">$15/мес</div>
+            <ul class="feature-list">
+              <li><i class="fas fa-check"></i> AI-анализ рыночных цен</li>
+              <li><i class="fas fa-check"></i> Базовые рекомендации</li>
+              <li><i class="fas fa-check"></i> 1 объект недвижимости</li>
+              <li><i class="fas fa-check"></i> Email поддержка</li>
+            </ul>
+            <a href="contact.html?plan=basic" class="btn btn-primary">Выбрать план</a>
+          </div>
+          
+          <div class="pricing-card popular reveal">
+            <h3>Pro</h3>
+            <div class="price">$30/мес</div>
+            <ul class="feature-list">
+              <li><i class="fas fa-check"></i> Всё из Basic</li>
+              <li><i class="fas fa-check"></i> До 5 объектов недвижимости</li>
+              <li><i class="fas fa-check"></i> Автоматизация платежей</li>
+              <li><i class="fas fa-check"></i> Приоритетная поддержка 24/7</li>
+              <li><i class="fas fa-check"></i> Продвинутая аналитика</li>
+            </ul>
+            <a href="contact.html?plan=pro" class="btn btn-primary">Выбрать план</a>
+          </div>
+          
+          <div class="pricing-card reveal">
+            <h3>Enterprise</h3>
+            <div class="price">По запросу</div>
+            <ul class="feature-list">
+              <li><i class="fas fa-check"></i> Всё из Pro</li>
+              <li><i class="fas fa-check"></i> Неограниченное число объектов</li>
+              <li><i class="fas fa-check"></i> API доступ</li>
+              <li><i class="fas fa-check"></i> Персональный менеджер</li>
+              <li><i class="fas fa-check"></i> Индивидуальные интеграции</li>
+            </ul>
+            <a href="contact.html?plan=enterprise" class="btn btn-primary">Связаться с нами</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-gradient">
+      <div class="container">
+        <h2 class="section-title reveal">Наши показатели</h2>
+        <div class="metrics-grid">
+          <div class="metric-card reveal">
+            <div class="number">15%</div>
+            <p>Средний рост дохода клиентов</p>
+          </div>
+          <div class="metric-card reveal">
+            <div class="number">500+</div>
+            <p>Активных пользователей</p>
+          </div>
+          <div class="metric-card reveal">
+            <div class="number">98%</div>
+            <p>Точность AI-прогнозов</p>
+          </div>
+          <div class="metric-card reveal">
+            <div class="number">1000+</div>
+            <p>Обработанных объектов</p>
+          </div>
+        </div>
+
+        <div class="calculator reveal">
+          <h2 class="section-title">Калькулятор окупаемости</h2>
+          <p class="text-center">Рассчитайте вашу реальную выгоду от использования Landlord.AI</p>
+          
+          <div class="calculator-form">
+            <div style="margin-bottom: 1rem;">
+              <label for="propertyCount" style="display: block; margin-bottom: 0.5rem;">Количество объектов недвижимости:</label>
+              <input type="number" placeholder="Например: 2" id="propertyCount" min="1" max="100" style="width: 100%;">
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+              <label for="averageRent" style="display: block; margin-bottom: 0.5rem;">Средняя цена аренды ($):</label>
+              <input type="number" placeholder="Например: 500" id="averageRent" min="100" max="10000" style="width: 100%;">
+            </div>
+            
+            <button class="btn btn-primary" onclick="calculateROI()" style="width: 100%;">Рассчитать выгоду</button>
+            
+            <div class="calculator-result" id="roiResult" style="display:none">
+              <h3 style="color: #2563eb; margin: 1.5rem 0;">Ваша потенциальная выгода</h3>
+              <div class="number" id="monthlyGain" style="font-size: 2.5rem; font-weight: bold; color: #2563eb; margin-bottom: 1rem;">$0</div>
+              <p>дополнительного дохода в месяц</p>
+              <div class="gain-details" style="text-align: left; margin-top: 1rem; font-size: 0.9rem; background: #f8fafc; padding: 1rem; border-radius: 8px;">
+                <p style="margin-bottom: 0.5rem;">• Оптимизация цен: <span id="priceOptimization">$0</span></p>
+                <p style="margin-bottom: 0.5rem;">• Снижение простоев: <span id="vacancyReduction">$0</span></p>
+                <p style="margin-bottom: 0.5rem;">• Экономия времени: <span id="timeValue">$0</span></p>
+                <p style="margin-bottom: 0.5rem;">• Стоимость подписки: <span id="subscriptionCost">$0</span></p>
+              </div>
+              <div style="margin-top: 1.5rem;">
+                <a href="contact.html" class="btn btn-primary" style="width: 100%;">Начать экономить</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Отзывы клиентов</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal">
+            <p>"После внедрения Landlord.AI мои квартиры простаивают на 70% меньше. Система точно прогнозирует спрос и помогает устанавливать оптимальные цены."</p>
+            <div class="testimonial-author">
+              <img src="../assets/images/testimonial1.svg" alt="Алия">
+              <div>
+                <strong>Алия Б.</strong>
+                <p>Владелец 3 квартир</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card reveal">
+            <p>"Автоматизация платежей и уведомлений сэкономила мне массу времени. Теперь я могу управлять всеми своими объектами прямо со смартфона."</p>
+            <div class="testimonial-author">
+              <img src="../assets/images/testimonial2.svg" alt="Максат">
+              <div>
+                <strong>Максат К.</strong>
+                <p>Инвестор в недвижимость</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card reveal">
+            <p>"AI-аналитика помогла мне поднять цены на 25% без потери арендаторов. Сервис окупился уже в первый месяц использования."</p>
+            <div class="testimonial-author">
+              <img src="../assets/images/testimonial3.svg" alt="Елена">
+              <div>
+                <strong>Елена М.</strong>
+                <p>Риелтор</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="container">
+        <h2 class="section-title reveal">Интеграции и API</h2>
+        <div class="advantages-grid">
+          <div class="advantage-card reveal">
+            <i class="fas fa-plug"></i>
+            <div>
+              <h3>REST API</h3>
+              <p>Полный доступ к функциям Landlord.AI через современное REST API</p>
+            </div>
+          </div>
+          <div class="advantage-card reveal">
+            <i class="fas fa-robot"></i>
+            <div>
+              <h3>Telegram Bot</h3>
+              <p>Управление недвижимостью прямо из Telegram</p>
+            </div>
+          </div>
+          <div class="advantage-card reveal">
+            <i class="fas fa-handshake"></i>
+            <div>
+              <h3>Партнёрства</h3>
+              <p>Интеграции с Homeller, Lalafo и другими площадками</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Landlord.AI</h4>
+          <p>Умный помощник для арендодателей в Бишкеке</p>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <a href="mailto:info@landlord.ai">info@landlord.ai</a>
+          <a href="tel:+996555123456">+996 (555) 123-456</a>
+        </div>
+        <div class="footer-col">
+          <h4>Социальные сети</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Landlord.AI. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="../js/calculator.js"></script>
+  <script>
+    // Инициализация анимаций
+    document.addEventListener('DOMContentLoaded', function () {
+      var reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(function(el, i){
+        if (!el.getAttribute('data-aos')) {
+          el.setAttribute('data-aos', 'fade-up');
+          el.setAttribute('data-aos-delay', String((i % 6) * 80));
+        }
+      });
+
+      if (window.AOS) AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+    });
+  </script>
+</body>
+</html>

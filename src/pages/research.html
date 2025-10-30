@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Исследование рынка - Landlord.AI</title>
+    
+    <!-- Подключаем общие стили и скрипты -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js для графиков -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <!-- Навигация из _layout.html -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-building"></i>
+                Landlord.AI
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="research.html" class="active">Исследование</a>
+                <a href="validation.html">Валидация</a>
+                <a href="business-model.html">Бизнес</a>
+                <a href="roadmap.html">Развитие</a>
+                <a href="tech.html">Технологии</a>
+                <a href="about.html">О проекте</a>
+                <a href="contact.html">Контакты</a>
+                <a href="calculator.html" class="cta-button">Рассчитать</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content reveal">
+                    <h1>Исследование рынка аренды в Бишкеке</h1>
+                    <p class="subtitle">Актуальная аналитика и тренды рынка недвижимости</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="market-grid stack-vertical">
+                    <!-- Карта города -->
+                    <div id="map" class="reveal" style="height:320px; margin-top:1.2rem; border-radius:12px; overflow:hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- График цен (сверху) -->
+                    <div class="chart-container reveal">
+                        <canvas id="marketTrends" data-chart="years"></canvas>
+                    </div>
+
+        <section class="section bg-light">
+            <div class="container">
+                <!-- Таблица цен (перенесена сюда — сверху секции AI-инсайты) -->
+                <div class="price-table reveal">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="background:#2563eb; color:white; padding:12px">Тип жилья</th>
+                                <th style="background:#2563eb; color:white; padding:12px">Район</th>
+                                <th style="background:#2563eb; color:white; padding:12px">Площадь</th>
+                                <th style="background:#2563eb; color:white; padding:12px">Цена аренды</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Центр</td>
+                                <td>2 комн.</td>
+                                <td>60 м²</td>
+                                <td>$500</td>
+                            </tr>
+                            <tr>
+                                <td>Джал</td>
+                                <td>1 комн.</td>
+                                <td>45 м²</td>
+                                <td>$350</td>
+                            </tr>
+                            <tr>
+                                <td>Восток-5</td>
+                                <td>3 комн.</td>
+                                <td>80 м²</td>
+                                <td>$600</td>
+                            </tr>
+                            <tr>
+                                <td>Южные микр.</td>
+                                <td>2 комн.</td>
+                                <td>55 м²</td>
+                                <td>$400</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 class="section-title reveal">AI-инсайты</h2>
+                <div class="feature-grid">
+                    <div class="feature-card reveal">
+                        <div class="icon-soft"><i class="fas fa-chart-area"></i></div>
+                        <div class="content">
+                            <h3>Средний рост ставок</h3>
+                            <p>Модель Landlord.AI показывает средний рост ставок: <strong>+12% в год</strong></p>
+                        </div>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="icon-soft"><i class="fas fa-gem"></i></div>
+                        <div class="content">
+                            <h3>Элитные ЖК</h3>
+                            <p>Элитные ЖК демонстрируют опережающий рост по сравнению со спальными районами.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="icon-soft"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="content">
+                            <h3>Районы-лидеры</h3>
+                            <p>Южные районы и центр — лидеры по доходности.</p>
+                        </div>
+                    </div>
+
+
+                    <!-- таблица перемещена наверх секции -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title reveal">Тренды рынка</h2>
+                <div class="feature-grid">
+                    <div class="feature-card reveal">
+                        <div class="icon-soft">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="content">
+                            <h3>Рост цен</h3>
+                            <p>Средний рост цен на аренду составил 15% за последний год</p>
+                            <ul class="feature-list">
+                                <li>Центр: +18%</li>
+                                <li>Спальные районы: +12%</li>
+                                <li>Новостройки: +20%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="icon-soft">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h3>Сезонность</h3>
+                            <p>Пиковые периоды спроса и изменения цен</p>
+                            <ul class="feature-list">
+                                <li>Август-Сентябрь: +25%</li>
+                                <li>Декабрь-Январь: -10%</li>
+                                <li>Май-Июнь: +15%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="icon-soft">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h3>Популярные районы</h3>
+                            <p>Районы с наибольшим спросом</p>
+                            <ul class="feature-list">
+                                <li>Центр города</li>
+                                <li>Микрорайоны</li>
+                                <li>Джал, Аламедин</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="cta-block reveal">
+                    <h2>Хотите узнать рыночную цену вашей квартиры?</h2>
+                    <p>Наш AI-калькулятор поможет определить оптимальную цену аренды</p>
+                    <a href="calculator.html" class="btn btn-primary">Рассчитать стоимость</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <!-- Footer (shared style like on index.html) -->
+        <footer class="footer">
+                <div class="container">
+                        <div class="footer-content">
+                                <div class="footer-logo">
+                                        <h3>Landlord.AI</h3>
+                                        <p>Умный помощник для арендодателей</p>
+                                </div>
+                                <div class="footer-links">
+                                        <h4>Контакты</h4>
+                                        <p>Email: info@landlord.ai</p>
+                                        <p>Телефон: +996 (555) 123-456</p>
+                                </div>
+                        </div>
+                        <div class="footer-bottom">
+                                <p>&copy; 2025 Landlord.AI. Все права защищены.</p>
+                        </div>
+                </div>
+        </footer>
+</body>
+</html>
